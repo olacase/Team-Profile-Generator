@@ -6,7 +6,7 @@ const Manager = require("./lib/Manager");
 
 const employees = [];
 
-function initApp() {
+function initIndex() {
     startHtml();
     addMember();
 }
@@ -192,4 +192,4 @@ function finishHtml() {
 // .then(function() {
 // finishHtml();
 // });
-initApp();
+initIndex();
