@@ -7,11 +7,11 @@ const Manager = require("./lib/Manager");
 const employees = [];
 
 function initIndex() {
-    startHtml();
-    addMember();
+    beginHtml();
+    addTeammate();
 }
 
-function addMember() {
+function addTeammate() {
     inquirer.prompt([{
         message: "Enter team member's name",
         name: "name"
@@ -69,9 +69,9 @@ function addMember() {
             addHtml(newMember)
             .then(function() {
                 if (moreMembers === "yes") {
-                    addMember();
+                    addTeammate();
                 } else {
-                    finishHtml();
+                    endHtml();
                 }
             });
             
@@ -79,15 +79,8 @@ function addMember() {
     });
 }
 
-// function renderHtml(memberArray) {
-//     startHtml();
-//     for (const member of memberArray) {
-//         addHtml(member);
-//     }
-//     finishHtml();
-// }
 
-function startHtml() {
+function beginHtml() {
     const html = `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -103,12 +96,12 @@ function startHtml() {
         </nav>
         <div class="container">
             <div class="row">`;
-    fs.writeFile("./output/team.html", html, function(err) {
+    fs.writeFile("./_dist/team.html", html, function(err) {
         if (err) {
             console.log(err);
         }
     });
-    console.log("start");
+    console.log("begin!");
 }
 
 function addHtml(member) {
@@ -156,7 +149,7 @@ function addHtml(member) {
         </div>`
         }
         console.log("adding team member");
-        fs.appendFile("./output/team.html", data, function (err) {
+        fs.appendFile("./_dist/team.html", data, function (err) {
             if (err) {
                 return reject(err);
             };
@@ -171,14 +164,14 @@ function addHtml(member) {
     
 }
 
-function finishHtml() {
+function endHtml() {
     const html = ` </div>
     </div>
     
 </body>
 </html>`;
 
-    fs.appendFile("./output/team.html", html, function (err) {
+    fs.appendFile("./_dist/team.html", html, function (err) {
         if (err) {
             console.log(err);
         };
@@ -186,10 +179,5 @@ function finishHtml() {
     console.log("end");
 }
 
-// addMember();
-// startHtml();
-// addHtml("hi")
-// .then(function() {
-// finishHtml();
-// });
+
 initIndex();
