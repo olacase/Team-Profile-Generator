@@ -13,8 +13,18 @@ function initIndex() {
 
 function addTeammate() {
     inquirer.prompt([{
-        message: "Enter team member's name",
-        name: "name"
+        message: "Enter team member's name? (Required)",
+        name: "name",
+        validate: nameInput => {
+            if (nameInput){
+                return true
+            }
+            else{
+                console.log('Please enter a valid response!');
+                return false
+            }
+        }
+        
     },
     {
         type: "list",
