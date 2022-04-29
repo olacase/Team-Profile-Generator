@@ -2,7 +2,7 @@
 
 [githun=b](https://github.com/olacase/Team-Profile-Generator)
 
-![image]()
+![image](./src/Untitled_%20Apr%2029%2C%202022%209_07%20AM.webm)
 
 ## Table of contents
 
